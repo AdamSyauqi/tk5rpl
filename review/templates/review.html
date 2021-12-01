@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'review/style.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            User Portal
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              {% if username == None %}
+            <li><a class="dropdown-item" href="#">About</a></li>
+            <li><a class="dropdown-item" href="#">Register</a></li>
+            <li><a class="dropdown-item" href="#">Login</a></li>
+              {% else %}
+            <li><a class="dropdown-item" href="#">About</a></li>
+            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+              {% endif %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<body>
+    <div class="container djustify-content-center mt-100 mb-100" style="width: 100%;height: 100%;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="flex-column mb-2">
+                <div class="fw-bold fs-3">Rate and Comment Freelancer</div>
+                <form align="left" action="" method="post">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Submit review</button>
+                </form>
+            </div>
+                <div class="card-body">
+                    <h4 class="card-title">Recent Review</h4>
+                </div>
+                <div class="comment-widgets m-b-20">
+                    <div class="d-flex flex-row comment-row">
+                        <div class="p-2"><span class="round"><img class="rounded-circle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="user" width="50"></span></div>
+                        <div class="comment-text w-100">
+                            <h5>David</h5>
+                            <div>★★★★★</div>
+                            <div class="comment-footer"> <span class="date">April 11, 2021</span> <span class="action-icons"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart"></i></a> </span> </div>
+                            <p class="m-b-5 m-t-10">Cool</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row comment-row ">
+                        <div class="p-2"><span class="round"><img class="rounded-circle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="user" width="50"></span></div>
+                        <div class="comment-text active w-100">
+                            <h5>Anna</h5>
+                            <div>★★★★★</div>
+                            <div class="comment-footer"> <span class="date">March 28, 2020</span> <span class="action-icons active"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right text-success"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart text-danger"></i></a> </span> </div>
+                            <p class="m-b-5 m-t-10">Nice</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row comment-row">
+                        <div class="p-2"><span class="round"><img class="rounded-circle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="user" width="50"></span></div>
+                        <div class="comment-text w-100">
+                            <h5>Walter</h5>
+                            <div>★★★★★</div>
+                            <div class="comment-footer"> <span class="date">Jan 21, 2020</span> <span class="action-icons"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart"></i></a> </span> </div>
+                            <p class="m-b-5 m-t-10">Good job</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row comment-row">
+                        <div class="p-2"><span class="round"><img class="rounded-circle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="user" width="50"></span></div>
+                        <div class="comment-text w-100">
+                            <h5>Jeremy</h5>
+                            <div>★★★★★</div>
+                            <div class="comment-footer"> <span class="date">March 20, 2019</span> <span class="action-icons"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart"></i></a> </span> </div>
+                            <p class="m-b-5 m-t-10">Cheap</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
