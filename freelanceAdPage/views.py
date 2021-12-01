@@ -10,3 +10,9 @@ from django.contrib.auth.decorators import login_required
 
 def browse_page(request):
     return render(request, 'browse_page.html')
+
+def browse_fail(request):
+    return render(request, 'browse_fail.html')
+
+def freelance_ad_page(request):
+    return render(request, 'freelance_ad_page.html')
