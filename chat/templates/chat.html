@@ -6,15 +6,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'chat/styles.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -54,195 +48,146 @@
   </div>
 </nav>
 <body>
-<script>
-    $(function(){
-        if ($('#ms-menu-trigger')[0]) {
-            $('body').on('click', '#ms-menu-trigger', function() {
-                $('.ms-menu').toggleClass('toggled'); 
-            });
-        }});
-</script>
-<div class="container">
-    <div class="tile tile-alt" id="messages-main">
-        <div class="ms-menu">
-            <div class="ms-user clearfix">
-                <h5>Message</h5>
-            </div>
-            
-            <div class="list-group lg-alt">
-                <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
+    <div class="container-fluid">
+        <div class="row justify-content-center calc">
+            <div class="col col-sm-4 col-lg-3">
+                <div class="ms-recent">
+                    <div style="background-color: #f8f8f8;"><h5 class="float-start">Message</h5></div>
+                    <div class="ms-recent-list">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">David</h5>
+                                    <small>3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small class="text-muted">3 days ago</small>
+                                </div>
+                                <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            </a>
+                        </div>
                     </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">David</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-                
-                <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
-                    </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">Anna</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-                
-                <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
-                    </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">Walter</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-                
-                <a class="list-group-item media" href="">
-                    <div class="lv-avatar pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
-                    </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">Jeremy</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-                
-                <a class="list-group-item media" href="">
-                    <div class="lv-avatar pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
-                    </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">Reggy</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-                
-                <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
-                    </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">Henry</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-                
-                <a class="list-group-item media" href="">
-                    <div class="pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
-                    </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">Paul</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-                
-                <a class="list-group-item media" href="">
-                    <div class="lv-avatar pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
-                    </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">James</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-                
-                <a class="list-group-item media" href="">
-                    <div class="lv-avatar pull-left">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar" style="border-radius: 50%;">
-                    </div>
-                    <div class="media-body">
-                        <div class="list-group-item-heading">William</div>
-                        <small class="list-group-item-text c-gray">Hello</small>
-                    </div>
-                </a>
-            </div>
-    
-            
-        </div>
-        
-        <div class="ms-body">
-            <div class="action-header clearfix">
-                <div class="visible-xs" id="ms-menu-trigger">
-                    <i class="fa fa-bars"></i>
-                </div>
-                
-                <div class="pull-left hidden-xs">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAMFBMVEXMzMyXl5eWlpbPz8+pqammpqaysrKvr6/JycnBwcGcnJzExMTHx8e2tra9vb2jo6Nclro/AAAED0lEQVR4nO3Y65ajKBSGYQUPgAr3f7fD3gghSdV0ZWbFqur1Pj+6U3jI/kQBMwwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgB/DLiGs9rureCe7juNEwl+NhL/fz0lo7XMZ9qNGbf/TYd0fjwk/Oee77fFYlmPrm6zz0hb3W5Nz8u8mzdpqBzksOnu3XQ6Le217SLjLwX64OKT182jGzKTYCtums21M/mz0IUx2n422rrnhCPo5HOWQKYTN+lS2T2fGPqGNyeStxoTFXRrwGBtznHXF8bnRS91BKpTGya5S7W0Hm6/Tdph6VCgXpksoH+spw/5xMW/htfeWY5HeMV7bNlPajlW7aa87ppR7zMdJGnOgdPgjScWuJByXctikEbf7hOWKTPmcuvW6gFJYvt5Csmo1NpdoorZpDy+2XYpZBgobtauO/NmWfc8T1VMNkjHdJ5RjktNzSsb5smfRBSm1hM19o9fW5grqYlIKn1rCeulTt4cpJygJt3qqmrslDGfms3H0F4RTe/dlcZ7mWnRts0uXsD2na7t3B5tKJ2vCtsh25/3QEsa7UKHb9d1k7FjaEHpOVs61we7WCb5LlWOH2sl9wr0/LHSHy/+pZZLja4e+X5AHbfhkHrZW7uKWMLhbhfMHCbuq88hr9u4C6V7tSnbnejtbBvj58O5uIra5I7dYhsUvJ+xXL0YfxJpQLtQam6Xv73er86EJ83FbimzLHMrM90rC7tmy8tTeEu76FY0OSlcllPVLMGfI9Wwrk3MuJUzTCwmXrg+DjkufJBTXJZQ70q+pLFW0bpt0xl/1zl3+cx+OD314+DuXrtz0fcFLx+mzI4/m7Mq48FLC7jl0z89htMN36F6R7Ba0cKm5jYovJezWYvGjsfSKQI/sMc/tyusklhPeljkP8+GfEpo2p8ui5t/mw5SumvHtku/I9sdZRp9weGU+vK02t3OB0y6QrBfabepCWx69XzS3dem5mLLh9sYzzK/MFrVuXSfodHC7BfJuob40zuf7yCW0lkVney8vf9u56jx0CSdN0q/2iwlHs8ouMdQ1aneTy1h9yNYtjRd2YV3TpDnJpGh0NHA6N06rzJNB4k7yUv6FhLMkS3qmc6zq3g/1i0JKOhVd9/LUIhbnDxK+vYynzek8KQnzjNkSGpNaQmPajF/6XCdWdyY0NU33Y4JZn8p4a0RZ04iw1lWb3SddgKQyO2a5XpfXk/WYLcY2bPoY9YnTNY1bzwPt8555o37ROPkLe7B8tXXbtt29X1i7S4t+HLbtCxWdqzY912c/plk5l/ue3xP/v8d16d+HhL8fCX8/+c37L0+4zun47iIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBP9Q+0BiDJPPQNAgAAAABJRU5ErkJggg==" alt="" class="img-avatar m-r-10" style="border-radius: 50%;">
-                    <div class="lv-avatar pull-left">
-                        
-                    </div>
-                    <span>David</span>
-                </div>
-                 
-                <ul class="ah-actions actions">
-                    <li>
-                        <a href="">
-                            <i class="fa fa-sign-blank"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-    
-            <div class="message-feed media">
-                <div class="media-body">
-                    <div class="mf-content">
-                        Hello.
-                    </div>
-                    <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:00</small>
                 </div>
             </div>
-            
-            <div class="message-feed right">
-                <div class="media-body">
-                    <div class="mf-content">
-                        Hi.
+            <div class="col col-sm-8 col-lg-9 d-none d-sm-block" style="position: relative;padding: 0 !important;">
+                <div class="action-header clearfix">
+                    <div class="d-block d-sm-none" id="ms-menu-trigger">
+                        <i class="fa fa-bars"></i>
                     </div>
-                    <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:30</small>
-                </div>
-            </div>
-            
-            <div class="message-feed media">
-                <div class="media-body">
-                    <div class="mf-content">
-                        Hello.
+                    <div class="float-start d-none d-sm-block">
+                        <span><h5 class="mb-1">David</h5></span>
                     </div>
-                    <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 09:33</small>
+                    <ul class="ah-actions actions">
+                        <li>
+                            <a href="">
+                                <i class="fa fa-sign-blank"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            
-            <div class="message-feed right">
-                <div class="media-body">
-                    <div class="mf-content">
-                        Hi.
+                <div class="ms-box">
+                    <ul class="ms-box-chat">
+                        <li class="me">By this User, first message</li>
+                        <li class="me">By this User, secondmessage</li>
+                        <li class="me">By this User, third message</li>
+                        <li class="me">By this User, fourth message</li>
+                        <li class="him">By Other User</li>
+                        <li class="him">By Other User</li>
+                        <li class="me">By this User, first message</li>
+                        <li class="me">By this User, secondmessage</li>
+                        <li class="me">By this User, third message</li>
+                        <li class="me">By this User, fourth message</li>
+                    </ul>
+                </div>
+                <div class="input-group mb-3" style="position: absolute;left: 0;bottom: 0;">
+                    <input type="text" class="form-control">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">Send</button>
                     </div>
-                    <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 10:10</small>
                 </div>
-            </div>
-            
-            <div class="message-feed media">
-                <div class="media-body">
-                    <div class="mf-content">
-                        Hello.
-                    </div>
-                    <small class="mf-date"><i class="fa fa-clock-o"></i> 20/02/2015 at 10:24</small>
-                </div>
-            </div>
-            
-            <div class="msb-reply">
-                <textarea placeholder="Send chat"></textarea>
-                <button><i class="fa fa-paper-plane-o"></i></button>
             </div>
         </div>
     </div>
-</div>
 </body>
-
-<footer>
-  
-</footer>
-
 </html>

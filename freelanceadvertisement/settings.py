@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
     'freelanceAdPage',
-    'home'
+    'home',
+    'chat',
+    'review',
 ]
 
 MIDDLEWARE = [
