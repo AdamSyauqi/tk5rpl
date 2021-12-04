@@ -23,6 +23,7 @@ def signup(request):
                 form.save()
                 user = form.cleaned_data.get('username')
                 message.success(user)
+                login(request, user)
                 return redirect('login/')
     context = {'form':form}
     return render(request, 'signup.html', context)

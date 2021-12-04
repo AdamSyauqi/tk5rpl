@@ -64,7 +64,8 @@
                   <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                   <p class="text-white-50 mb-5">Please enter your username and password!</p>
 
-                  <div class="form-outline form-white mb-4">
+                  <form method="POST"> {% csrf_token %}
+                    <div class="form-outline form-white mb-4">
                     <input type="username" id="typeUsernameX" class="form-control form-control-lg" />
                     <label class="form-label" for="typeUsernameX">Username</label>
                   </div>
@@ -75,7 +76,7 @@
                   </div>
                   <input class="btn btn-outline-light btn-lg px-5" type="submit" value="Login">
                 </div>
-
+                  </form>
                 <div>
                   <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
                 </div>
