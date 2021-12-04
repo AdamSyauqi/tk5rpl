@@ -25,11 +25,11 @@
               {% if username == None %}
             <li><a class="dropdown-item" href="#">About</a></li>
             <li><a class="dropdown-item" href="#">Register</a></li>
-            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="{% url 'home:login' %}">Login</a></li>
               {% else %}
             <li><a class="dropdown-item" href="#">About</a></li>
             <li><a class="dropdown-item" href="#">Dashboard</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="{% url 'home:logout' %}">Logout</a></li>
               {% endif %}
           </ul>
         </li>
