@@ -20,10 +20,9 @@ def signup(request):
         if request.method == 'POST':
             form = SignUpForm(request.POST)
             if form.is_valid() :
-                form.save()
-                user = form.cleaned_data.get('username')
-                message.success(user)
-                login(request, user)
+                username = form.cleaned_data.get('username')
+                user = form.save()
+                message.success(username)
                 return redirect('login/')
     context = {'form':form}
     return render(request, 'signup.html', context)
