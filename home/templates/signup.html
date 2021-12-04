@@ -51,44 +51,44 @@
   </nav>
   {% block content %}
 
-  <body>
-    <section class="vh-100 bg-image" style="background-color:#6a11cb;">
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
+  <body class="gradient-custom">
+    <section style="height: calc(100vh - 56px);">
+  <div class="mask d-flex align-items-center gradient-custom-3">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div class="card mt-3" style="border-radius: 15px;">
+          <div class="card bg-dark text-white mt-5" style="border-radius: 15px;">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
               <form method="POST"> 
                 {% csrf_token %}
 
-                <div class="form-outline mb-4">
+                <div class="d-flex justify-content-center form-outline mb-4">
                   {{ form.username }}
-                  <label class="form-label" for="form3Example1cg">Your Name</label>
                 </div>
 
-                <div class="form-outline mb-4">
+                <div class="d-flex justify-content-center form-outline mb-4">
                   {{ form.email }}
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
                 </div>
 
-                <div class="form-outline mb-4">
+                <div class="d-flex justify-content-center form-outline mb-4">
                   {{ form.password1 }}
-                  <label class="form-label" for="form3Example4cg">Password</label>
                 </div>
 
-                <div class="form-outline mb-4">
+                <div class="d-flex justify-content-center form-outline mb-4">
                   {{ form.password2 }}
-                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                </div>
+
+                <div class="d-flex justify-content-center form-outline mb-4">
+                  {{ form.role }}
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <input type="submit" value="Register" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                  <input type="submit" value="Register" class="btn btn-outline-light btn-lg px-5">
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
+                <p class="text-center text-muted mt-3 mb-0">Have already an account? <a href="{% url 'home:login' %}" class="text-white-50 fw-bold text-body"><u>Login here</u></a></p>
 
               </form>
 
