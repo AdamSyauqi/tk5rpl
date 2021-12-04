@@ -61,7 +61,8 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form method="POST"> {% csrf_token %}
+              <form method="POST"> 
+                {% csrf_token %}
 
                 <div class="form-outline mb-4">
                   {{ form.username }}

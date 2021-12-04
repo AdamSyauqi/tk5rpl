@@ -22,19 +22,22 @@ def signup(request):
             if form.is_valid() :
                 username = form.cleaned_data.get('username')
                 user = form.save()
-                message.success(username)
-                return redirect('login/')
+                print(user)
+                messages.success(request, username)
+                return redirect('/')
     context = {'form':form}
     return render(request, 'signup.html', context)
 
 
-def login(request):
+def login_view(request):
     if request.user.is_authenticated:
             return redirect('/')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
+            print(username)
             password = request.POST.get('password')
+            print(password)
             user = authenticate(request, username=username, password=password)
             print(user)
             if user is not None:
@@ -45,6 +48,6 @@ def login(request):
     context = {}
     return render(request, 'login.html', context)
 
-def logout(request):
+def logout_view(request):
     logout(request)
     return redirect('login/')
