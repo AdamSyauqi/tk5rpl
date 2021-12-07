@@ -8,41 +8,32 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Browse Freelance Advertisement</title>
+    <title>Created Freelance Page List</title>
   </head>
   {% extends 'navbar.html' %} {% load static %} {% block content %}
+
   <body>
     <div class="container">
-        <h1>Search Freelance Page</h1>
-        <h5>Search for freelance offers here!</h5>
-        <form method="POST">
-          {% csrf_token %}
-            <div class="mb-3">
-              <label for="search_freelance" class="form-label">Search Freelance</label>
-              <input type="text" class="form-control" id="search_freelance", name="search_freelance">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        {% if count == 0 %}
-        <br>
-        <h2 class="text-center">The freelance you're looking for doesn't exist!</h2>
-        <h2 class="text-center">Please try using different keywords!</h2>
-        {% else %}
-        <div class="row">
-          {% for ad in freelances %}
-          <div class="col-3">
-            <div class="card" style="width: 18rem;">
+      <h1>Created Freelance Page List</h1>
+      <div class="row">
+        {% for ad in AdPage %}
+        <div class="col-4">
+            <div class="card">
               <img src="{% static 'image/Bowling_5_1080P.jpg'%}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{ad.title}}</h5>
-                <p class="card-text">{{ad.description}}</p>
+                <p class="card-text">{{ad.description|slice:":50"}}</p>
+                <p class="card-text">Set Price: {{ad.price}}</p>
                 <a href="{% url 'freelanceAdPage:freelance_ad_page' ad.id %}" class="btn btn-primary">Check Page</a>
+                <a href="{% url 'freelanceAdPage:update_ad_page' ad.id %}" class="btn btn-primary">Update Page</a>
+                <a href="{% url 'freelanceAdPage:delete_ad_page' ad.id %}" class="btn btn-danger">Delete Page</a>
               </div>
             </div>
           </div>
-          {% endfor %}
-        </div>
-        {% endif %}
+        {% endfor %}
+      </div>
+        
+        
     </div>
     
 

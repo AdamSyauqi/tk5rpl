@@ -14,18 +14,31 @@
 
   <body>
     <div class="container">
+      <h1>Create Freelance Page</h1>
         <form method="post">
             {% csrf_token %}
-            Title
-            {{ form.title }} <br>
-            Description
-            {{ form.description }} <br>
-            Additional Info
-            {{ form.additional_info }} <br>
-            Price
-            {{ form.price }} <br>
-            <input type="submit" value="Save">
+            <div class="mb-3">
+              <label class="form-label">Freelance Title</label>
+              {{ form.title }}
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              {{ form.description }}
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Additional Info</label>
+              {{ form.additional_info }}
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Your Price</label>
+              {{ form.price }}
+            </div>      
+            <div>
+              {{ form.creator }}
+            </div>            
+            <input type="submit" value="Save" class="btn btn-primary">
         </form>
+        <a href="{% url 'freelanceAdPage:created_freelance_ad_page_list' %}" class="btn btn-danger">Cancel</a>
     </div>
     
 
