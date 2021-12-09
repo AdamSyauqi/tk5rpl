@@ -29,6 +29,7 @@
               {% else %}
             <li><a class="dropdown-item" href="#">About</a></li>
             <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{% url 'chat:chat' %}">Chat</a></li>
             <li><a class="dropdown-item" href="{% url 'home:logout' %}">Logout</a></li>
               {% endif %}
           </ul>
