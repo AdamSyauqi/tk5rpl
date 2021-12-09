@@ -24,7 +24,7 @@ class ISODateTimeField(models.DateTimeField):
 
 class rateAndComment(models.Model):
     user=models.CharField(max_length=120)
-    ad = models.CharField(max_length=100000000)
+    ad = models.CharField(max_length=1000000)
     review=models.CharField(max_length=1000000)
     score=(
         (1,1),
