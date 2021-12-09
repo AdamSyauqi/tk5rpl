@@ -22,15 +22,16 @@
             User Portal
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              {% if request.user.is_anonymous %}
+            {% if request.user.is_anonymous %}
             <li><a class="dropdown-item" href="#">About</a></li>
-            <li><a class="dropdown-item" href="#">Register</a></li>
+            <li><a class="dropdown-item" href="{% url 'home:signup' %}">Register</a></li>
             <li><a class="dropdown-item" href="{% url 'home:login' %}">Login</a></li>
-              {% else %}
+            {% else %}
             <li><a class="dropdown-item" href="#">About</a></li>
             <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{% url 'chat:chat' %}">Chat</a></li>
             <li><a class="dropdown-item" href="{% url 'home:logout' %}">Logout</a></li>
-              {% endif %}
+            {% endif %}
           </ul>
         </li>
       </ul>

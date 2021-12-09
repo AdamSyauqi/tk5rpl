@@ -25,6 +25,8 @@ def signup(request):
                 print(user)
                 messages.success(request, username)
                 return redirect('/')
+            else:
+                print(form.errors)
     context = {'form':form}
     return render(request, 'signup.html', context)
 

@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'freelanceAdPage',
     'home',
     'chat',
-    'review',
 ]
 
 MIDDLEWARE = [

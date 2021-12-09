@@ -11,4 +11,5 @@ urlpatterns = [
     path('created_freelance_ad_page_list', views.created_freelance_ad_page_list, name="created_freelance_ad_page_list"),
     path('update_ad_page/<str:pk>/', views.update_ad_page, name='update_ad_page'),
     path('delete_ad_page/<str:pk>/', views.delete_ad_page, name='delete_ad_page'),
+    path('<str:ad>',views.review,name='review')
 ]

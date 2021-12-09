@@ -6,5 +6,8 @@ class Anggota(AbstractUser):
 	email = models.EmailField()
 	password1 = models.CharField(max_length=50)
 	password2 = models.CharField(max_length=50)
-	is_freelancer = models.BooleanField(default=False)
-	is_employer = models.BooleanField(default=False)
+	ROLES = (
+		(1,'Freelancer'),
+		(2,'Employer'),
+	)
+	role = models.IntegerField(choices=ROLES, default=1)

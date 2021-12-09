@@ -1,0 +1,80 @@
+<div class="action-header clearfix">
+    <div id="ms-menu-trigger">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="float-start d-none d-sm-block">
+        <span><h5 class="mb-1">{{ friend }}</h5></span>
+    </div>
+    <ul class="ah-actions actions">
+        <li>
+            <a href="">
+                <i class="fa fa-sign-blank"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="ms-box">
+    <ul class="ms-box-chat" id="display">
+        
+    </ul>
+</div>
+<div class="input-group mb-3" style="position: absolute;left: 0;bottom: 0;">
+    <form id="post-form">
+        {% csrf_token %}
+        <input type="hidden" name="username" id="username" value="{{request.user}}" />
+        <input type="hidden" name="friend" id="friend" value="{{friend}}" />
+        <input type="text" name="message" id="message" class="form-control"/>
+        <input class="btn btn-primary" type="submit" value="Send">
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+
+      setInterval(function () {
+        $.ajax({
+          type: 'GET',
+          url: "/getmessages/{{ friend }}",
+          success: function (response) {
+            console.log(response);
+            $("#display").empty();
+            for (var key in response.messages) {
+              if (response.messages[key].sender == '{{request.user}}') {
+                var temp = "<li class='me'>"+response.messages[key].message+"</li>";
+                $("#display").append(temp);
+              }
+              else {
+                var temp = "<li class='him'>"+response.messages[key].message+"</li>";
+                $("#display").append(temp);
+              }
+            }
+        },
+        error: function (response) {
+            alert('An error occured')
+        }
+    })
+        ;}, 1000);
+  })
+</script>
+<script>
+    $(document).ready(function () {
+        $(document).on('submit', '#post-form', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/send',
+                data: {
+                  username: $('#username').val(),
+                  friend: $('#friend').val(),
+                  message: $('#message').val(),
+                  csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+              },
+              success: function (data) {
+              },
+              error: function (data) {
+                  alert("An error occured!");  
+              }
+          });
+            document.getElementById('message').value = '';
+        });
+    })
+</script>
