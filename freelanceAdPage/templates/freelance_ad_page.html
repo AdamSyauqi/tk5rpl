@@ -16,7 +16,16 @@
     <div class="container">
         <h1>{{ad.title}}</h1>
         <h4>Offered by:</h4>
-        <h4 class="">{{ad.creator}}</h4>
+        <h4 class="" style="display: inline-block;">{{ad.creator}}</h4>
+        {% if role == 3 %}
+        {% elif role == 2 %}
+        <form action="{% url 'chat:chat'%}" method="POST" style="display: inline-block;">
+            {% csrf_token %}
+            <input type="hidden" name="target" id="target" value="{{ ad.creator}}"/>
+            <input type="submit" value="💬" />
+        </form>
+        {% else %}
+        {% endif %}
         <br>
         <div class="row">
             <div class="col-8">

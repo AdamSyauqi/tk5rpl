@@ -24,15 +24,21 @@ def browse_page(request):
 def freelance_ad_page(request, pk):
     ad = AdPage.objects.get(id=pk)
     unsorted_reviews = rateAndComment.objects.all().filter(ad=pk)
+    if request.user.is_anonymous:
+        role = 3
+    else:
+        role = request.user.role
     if len(unsorted_reviews) < 1:
         context = {
         "ad": ad,
+        "role": role,
         "count": len(unsorted_reviews)
     }
     else:
-        review=sorted(list(unsorted_reviews.values()),key=lambda k:k['date'])[0]
+        review=sorted(list(unsorted_reviews.values()),key=lambda k:k['date'])[::-1][0]
         context = {
             "ad": ad,
+            "role": role,
             "review": review,
             "count": len(unsorted_reviews)
         }
@@ -99,9 +105,8 @@ def delete_ad_page(request, pk):
     else:
         return redirect('/')
 
-@login_required
 def review(request,ad):
-    if request.method == 'POST':
+    if request.user.is_anonymous == False and request.method == 'POST':
         user = request.user.username
         review = request.POST.get('review')
         rating = request.POST.get('rating')
@@ -112,5 +117,9 @@ def review(request,ad):
         new = rateAndComment.objects.create(user=user,ad=ad,review=review,rating=rating)
         new.save()
     unsorted_reviews = rateAndComment.objects.all().filter(ad=ad)
-    reviews=sorted(list(unsorted_reviews.values()),key=lambda k:k['date'])
-    return render(request, 'review.html',{'reviews':reviews,'ad':ad})
+    reviews=sorted(list(unsorted_reviews.values()),key=lambda k:k['date'])[::-1]
+    if request.user.is_anonymous:
+        role = 3
+    else:
+        role = request.user.role
+    return render(request, 'review.html',{'reviews':reviews,'ad':ad, 'role':role})

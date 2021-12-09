@@ -14,14 +14,6 @@ class AdPage(models.Model):
     def __str__(self):
         return self.title
 
-class ISODateTimeField(models.DateTimeField):
-    def value_to_string(self, obj):
-        val = self.value_from_object(obj)
-        if val:
-            val.replace(microsecond=0)
-            return val.isoformat()
-        return ''
-
 class rateAndComment(models.Model):
     user=models.CharField(max_length=120)
     ad = models.CharField(max_length=1000000)
@@ -34,4 +26,4 @@ class rateAndComment(models.Model):
         (5,5),
     )
     rating=models.IntegerField(choices=score,default=3)
-    date=ISODateTimeField(default=datetime.now,blank=True)
+    date=models.DateTimeField(default=datetime.now,blank=True)

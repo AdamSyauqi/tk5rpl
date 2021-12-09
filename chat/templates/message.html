@@ -33,7 +33,7 @@
       setInterval(function () {
         $.ajax({
           type: 'GET',
-          url: "/getmessages/{{ friend }}",
+          url: "getmessages/{{ friend }}",
           success: function (response) {
             console.log(response);
             $("#display").empty();
@@ -61,7 +61,7 @@
             e.preventDefault();
             $.ajax({
                 type: 'POST',
-                url: '/send',
+                url: 'send/',
                 data: {
                   username: $('#username').val(),
                   friend: $('#friend').val(),
@@ -71,7 +71,6 @@
               success: function (data) {
               },
               error: function (data) {
-                  alert("An error occured!");  
               }
           });
             document.getElementById('message').value = '';

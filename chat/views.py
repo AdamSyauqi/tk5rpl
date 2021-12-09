@@ -10,6 +10,8 @@ def chat(request):
 		if request.method =='POST':
 			target = request.POST.get('target')
 			user = request.user.username
+			if target == user:
+				return redirect('chat/')
 			if Room.objects.filter(user=user).filter(target=target).exists()==False:
 				new_target1 = Room.objects.create(user=user,target=target)
 				new_target1.save()
@@ -36,8 +38,9 @@ def getmessages(request,friend):
     else:
     	all_messages=Message.objects.all().filter(sender=request.user).filter(receiver=friend)|Message.objects.all().filter(sender=friend).filter(receiver=request.user)
     	all_messages.order_by('-date')
-    	Room.objects.filter(user=request.user.username).filter(target=friend).update(date=all_messages.last().date,last_message=all_messages.last().message)
-    	return JsonResponse({"messages":list(all_messages)})
+    	if len(all_messages) != 0:
+    		Room.objects.filter(user=request.user.username).filter(target=friend).update(date=all_messages.last().date,last_message=all_messages.last().message)
+    	return JsonResponse({"messages":list(all_messages.values())})
 
 def send(request):
     if request.user.is_anonymous or request.user.is_active==False:
@@ -48,14 +51,17 @@ def send(request):
     		receiver=request.POST.get("friend")
     		message=request.POST.get("message")
     		message=message.strip()
-    	if (message == "") or (request.user.username != sender):
-    		return redirect('/room/'+receiver)
-    	if sender==receiver:
+    		if (message == "") or (request.user.username != sender):
+    			return redirect('/room/'+receiver)
+    		if sender==receiver:
+    			return redirect('/')
+    		newmessage=Message(sender=sender,receiver=receiver,message=message)
+    		newmessage.save()
+    		newmessage.rooms.add(Room.objects.filter(user=sender).filter(target=receiver))
+    		all_messages=Message.objects.all().filter(sender=sender).filter(receiver=receiver)|Message.objects.all().filter(sender=receiver).filter(receiver=sender)
+    		all_messages.order_by('-date')
+    		if len(all_messages) != 0:
+    			Room.objects.filter(user=request.user.username).filter(target=friend).update(date=all_messages.last().date,last_message=all_messages.last().message)
+    		return HttpResponse("message sent")
+    	else:
     		return redirect('/')
-    	newmessage=Message(sender=sender,receiver=receiver,message=message)
-    	newmessage.save()
-    	newmessage.rooms.add(Room.objects.filter(user=sender).filter(target=receiver))
-    	all_messages=Message.objects.all().filter(sender=sender).filter(receiver=receiver)|Message.objects.all().filter(sender=receiver).filter(receiver=sender)
-    	all_messages.order_by('-date')
-    	Room.objects.filter(user=request.user.username).filter(target=friend).update(date=all_messages.last().date,last_message=all_messages.last().message)
-    	return HttpResponse("message sent")
