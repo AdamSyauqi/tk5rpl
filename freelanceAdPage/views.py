@@ -47,6 +47,7 @@ def create_ad_page(request):
             if form.is_valid():
                 AdPage.objects.create(**form.cleaned_data)
                 form = AdPageForm()
+                return redirect("/freelanceAdPage/created_freelance_ad_page_list")
         context = {
             'form' : form
         }
