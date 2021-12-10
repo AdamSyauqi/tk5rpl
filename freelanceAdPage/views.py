@@ -111,6 +111,9 @@ def review(request,ad):
         review = request.POST.get('review')
         rating = request.POST.get('rating')
         ad = request.POST.get('ad')
+        if (review=="") or (request.user.username == user):
+            print("Review should not be empty!")
+            return redirect('/freelanceAdPage/review/'+ad)
         if rateAndComment.objects.filter(user=user).exists():
             old = rateAndComment.objects.all().filter(ad=ad).filter(user=user)
             old.delete()
