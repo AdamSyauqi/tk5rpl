@@ -2,7 +2,7 @@
     height: calc(100vh - 56px);
 }
 p {
-  width: 50px;
+  width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

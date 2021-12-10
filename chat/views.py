@@ -18,7 +18,7 @@ def chat(request):
 				new_target2 = Room.objects.create(user=target,target=user)
 				new_target2.save()
 		unsorted_user_chats = Room.objects.all().filter(user=request.user.username)
-		user_chats=sorted(list(unsorted_user_chats.values()),key=lambda k:k['date'])
+		user_chats=sorted(list(unsorted_user_chats.values()),key=lambda k:k['date'])[::-1]
 		return render(request, 'chat.html',{'user_chats':user_chats})
 
 def room(request,friend):
