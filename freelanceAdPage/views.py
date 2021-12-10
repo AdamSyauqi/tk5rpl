@@ -108,9 +108,10 @@ def delete_ad_page(request, pk):
 def review(request,ad):
     if request.user.is_anonymous == False and request.method == 'POST':
         user = request.user.username
-        review = request.POST.get('review')
+        review = request.POST.get('review').strip()
         rating = request.POST.get('rating')
         ad = request.POST.get('ad')
+        revi
         if (review==""):
             print("Review should not be empty!")
             return redirect('/freelanceAdPage/review/'+ad)
