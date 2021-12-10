@@ -111,7 +111,6 @@ def review(request,ad):
         review = request.POST.get('review').strip()
         rating = request.POST.get('rating')
         ad = request.POST.get('ad')
-        revi
         if (review==""):
             print("Review should not be empty!")
             return redirect('/freelanceAdPage/review/'+ad)
