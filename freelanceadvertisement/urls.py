@@ -21,4 +21,5 @@ urlpatterns = [
     path('freelanceAdPage/', include('freelanceAdPage.urls')),
     path('', include('home.urls')),
     path('chat/', include('chat.urls')),
+    path('favfreelance/', include('favfreelance.urls')),
 ]
